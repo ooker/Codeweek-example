@@ -3,7 +3,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -29,8 +28,9 @@ h2 {
     text-align: center;
 }
 
-.menyy {
+.menu {
     display: flex;
+    flex-wrap:nowrap;
     position: fixed;
     top:0; left:0;
     background: hsl(240, 9%, 25%);
@@ -39,7 +39,8 @@ h2 {
     z-index: 10;
 }
 
-.menyy .menyy-item {
+.menu .menu-item {
+    display: none; 
     color: snow;
     padding: 1.5vh 2vw;
     text-decoration: none;
@@ -48,10 +49,25 @@ h2 {
     transition: all 1s ease;
 }
 
-.menyy .menyy-item:hover {
+.menu .menu-item:hover {
     background: hsl(200, 59%, 40%);
     border-bottom: 3px solid hsla(39, 100%, 50%, 1);
     transition: all 0.5s ease;
+}
+
+.menu .menu-small {
+    display: block;
+    margin-left: auto;
+}
+
+.menu .menu-small__close {
+    display: none;
+    font-size: 2.5rem;
+    position: absolute;
+    top:1.5vh; right: 3vw;
+    color: snow;
+    text-decoration: none;
+    line-height: 1;
 }
 
 .hero {
@@ -79,6 +95,11 @@ h2 {
     max-height: 55vh;
     fill: #fff;
 }
+.hero .logo .korvad {
+    display: none;
+}
+
+
 
 .content {
     width: 90%;
@@ -118,12 +139,23 @@ h2 {
 
 /* media queries */
 @media screen and (min-width: 640px) {
-    .logo .korvad {
+    .hero .logo .korvad {
         display: block;
     }
     
     .hero-heading {
         font-size: 4.6rem;
+    }
+    
+    .menu .menu-item {
+        display: block;   
+    }
+    
+    .menu .menu-small {
+        display: none;
+    }
+    .menu .menu-small__close{
+        display: none;
     }
 }
 
@@ -136,4 +168,24 @@ figcaption {
     font-size: 80%;
     font-style: italic;
     text-align: center;
+}
+
+
+#showMenu:target.menu {
+    flex-direction: column;
+    padding-bottom: 2vh;
+}
+#showMenu:target .menu-item {
+    display: block;
+    text-align: center;
+}
+#showMenu:target .menu-item:first-of-type {
+    margin-top: 3rem;
+}
+
+#showMenu:target .menu-small {
+    display: none;
+}
+#showMenu:target .menu-small__close {
+    display: block;
 }

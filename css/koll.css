@@ -3,7 +3,7 @@
 }
 
 .logo .silm {
-    animation: anim-silm 0.9s infinite;
+    animation: anim-silm 0.9s infinite alternate;
 }
 
 .logo .silm--vasak {
@@ -32,9 +32,9 @@
 
 @keyframes anim-loug{
     0% {
-        transform: translateY(-30px);
+        transform: translateY(10px);
     }
     100% {
-        transform: translateY(10px);
+        transform: translateY(-30px);
     }
 }
