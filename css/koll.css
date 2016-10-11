@@ -1,0 +1,40 @@
+.logo {
+    fill: #c6d382;
+}
+
+.logo .silm {
+    animation: anim-silm 0.9s infinite;
+}
+
+.logo .silm--vasak {
+    transform-origin: 217px 148px;
+}
+.logo .silm--parem {
+    transform-origin: 489px 148px;
+}
+
+.logo .loug {
+    animation: anim-loug 0.9s infinite alternate ;
+}
+
+
+/* keyframes */
+@keyframes anim-silm{
+    0% {
+        fill: rgba(255,0,0,1);
+        transform: scale(0);
+    }
+    100% {
+        fill: rgba(255,0,0,0);
+        transform: scale(2.4);
+    }
+}
+
+@keyframes anim-loug{
+    0% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}

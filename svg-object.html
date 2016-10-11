@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Codeweek: svg img</title>
+        <style>
+            .svg-container {
+                display: flex;
+                justify-content: space-around;
+                height: 80vh;
+            }
+            .svg-medium {
+                width:40vw;   
+            }
+            .svg-small {
+                width:20vw;   
+            }
+            .svg-tiny {
+                width:5vw;   
+            }
+        </style>
+    <body>
+        <h1>SVG kui object element</h1>
+        <div class="svg-container">
+            <object type="image/svg+xml" data="img/koll.svg" class="svg-medium"></object>
+            <object type="image/svg+xml" data="img/koll.svg" class="svg-small"></object>
+            <object type="image/svg+xml" data="img/koll.svg" class="svg-tiny"></object>
+        </div>
+        
+        <object type="image/svg+xml" data="img/koll.svg" class=""></object>
+    </body>
+</html>
