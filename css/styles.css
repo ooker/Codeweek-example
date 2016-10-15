@@ -94,10 +94,20 @@ h2 {
 .hero .logo {
     max-height: 55vh;
     fill: #fff;
+    transition: fill 1s ease;
 }
+
+.hero .logo:hover {
+    fill: black;
+    transition: fill 1s ease;
+}
+
+
 .hero .logo .korvad {
     display: none;
 }
+
+
 
 
 
