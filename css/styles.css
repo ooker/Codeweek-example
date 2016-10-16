@@ -96,7 +96,7 @@ footer h2 {
     width:3rem;
     height:2rem;
 
-    background: url('/img/koll-stiilidega.svg') no-repeat;
+    background: url('../img/koll-stiilidega.svg') no-repeat;
 /*    background: url('/img/kolmnurk.svg');*/
     
     background-size: contain;
