@@ -86,10 +86,8 @@ footer h2 {
     flex: 1 0 100%;
 }
 
-.flexBoxes__box h4 {
-    vertical-align: baseline;
-}
 
+/*
 .flexBoxes__box h4:before {
     content:" ";
     display: inline-block;
@@ -97,12 +95,11 @@ footer h2 {
     height:2rem;
 
     background: url('../img/koll-stiilidega.svg') no-repeat;
-/*    background: url('/img/kolmnurk.svg');*/
     
     background-size: contain;
     vertical-align: baseline;
 }
-
+*/
 
 @media screen and (min-width: 640px) {
      .col:last-of-type {
