@@ -1,6 +1,6 @@
-@import url("/css/top-bar.css");
-@import url("/css/monster.css");
-@import url("/css/hero.css");
+@import url("../css/top-bar.css");
+@import url("../css/monster.css");
+@import url("../css/hero.css");
 
 html {
   box-sizing: border-box;
