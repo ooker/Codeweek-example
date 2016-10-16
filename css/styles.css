@@ -82,6 +82,22 @@ footer h2 {
     flex: 1 0 100%;
 }
 
+.flexBoxes__box h4 {
+    vertical-align: baseline;
+}
+
+.flexBoxes__box h4:before {
+    content:" ";
+    display: inline-block;
+    width:1.5rem;
+    height:1.5rem;
+    background: url('/img/kolmnurk.svg');
+    
+    background-size: 100% 50%;
+    vertical-align: baseline;
+}
+
+
 @media screen and (min-width: 640px) {
      .col:last-of-type {
         border-top: none;
