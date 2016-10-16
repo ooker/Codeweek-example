@@ -97,7 +97,7 @@
 /* menüü avatud */
 
 #showMenu:target.topBar {
-    height: 50vh;
+    height: 100vh;
     transition: height 0.25s ease;
 }
 #showMenu:target .topBar__logo {

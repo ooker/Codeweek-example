@@ -44,13 +44,34 @@ figcaption {
     text-align: center;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 33vh;
+    margin-top: 7vh;
+    background: hsl(240, 9%, 25%);
+}
+footer h2 {
+    color: snow;
+    text-transform: uppercase;
+}
 
+
+.col:last-of-type {
+    border-top: 1px solid black;
+    padding-top: 5vh;
+    margin-top: 5vh;
+}
 
 
 .content {
     width: 90%;
     max-width: 64rem;   
 }
+
+
 
 .flexBoxes {
     display: flex;
@@ -59,6 +80,14 @@ figcaption {
 
 .flexBoxes__box {
     flex: 1 0 100%;
+}
+
+@media screen and (min-width: 640px) {
+     .col:last-of-type {
+        border-top: none;
+/*        padding-top: 5vh;*/
+        margin-top: none;
+    }
 }
 
 @media screen and (min-width: 860px) {

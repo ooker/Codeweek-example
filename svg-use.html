@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Codeweek: svg use</title>
+        <style>
+            .svg-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 80vh;
+            }
+            .svg-medium {
+                width:40vw;   
+            }
+            .svg-small {
+                width:20vw;   
+            }
+            .svg-tiny {
+                width:5vw;   
+            }
+            
+            use {
+                width:100%; height:auto;
+            }
+            
+        </style>
+    <body>
+        <svg style="display:none;">
+            
+            <defs>
+                <symbol id="pall">
+                    <circle r="50" cx="50" cy="50"></circle>
+                </symbol>
+                <symbol id="kast">
+                    <rect width="100" height="100"></rect>
+                </symbol>
+                <symbol id="kolmnurk">
+                    <polygon points="0,100 100,100 50,10" ></polygon>
+                </symbol> 
+            </defs>
+            
+            <!--<use xlink:href="#kolmnurk" style="fill:green; transform:translate(-20px,40px) rotate(-20deg); opacity:0.4"></use>
+            <use xlink:href="#pall" style="fill:red; transform:scale(0.5); opacity:0.4"></use>
+            <use xlink:href="#pall" style="fill:yellow; transform:translate(30px,40px) scale(0.4); opacity:0.4"></use>-->
+           
+        </svg>
+            
+
+        <h1>SVG &lt;symbol&gt; ja &lt;use&gt;</h1>
+        <div class="svg-container">
+            <svg class="svg-medium" viewBox="0 0 100 100">
+                <use xlink:href="#kolmnurk" style="fill:purple;"></use>
+            </svg>
+            <svg class="svg-small" viewBox="0 0 100 100">
+                <use xlink:href="#kast" style="fill:blue;"></use>
+            </svg>
+            <svg class="svg-tiny" viewBox="0 0 100 100">
+                <use xlink:href="#pall" style="fill:green;"></use>
+            </svg> 
+        </div>
+        
+        <svg viewBox="0 0 700 416">
+            <use xlink:href="/img/koll-symbol.svg#koll" style="fill:red;"></use>
+        </svg>
+        
+        
+    </body>
+</html>
