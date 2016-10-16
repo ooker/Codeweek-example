@@ -1,0 +1,116 @@
+.topBar {
+    position: fixed;
+    top:0; left:0;
+    z-index: 10;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    background: hsl(240, 9%, 25%);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    
+    transition: height 0.25s ease;
+}
+
+.topBar__logo{
+    position: absolute;
+    top:1.25rem; left:1rem;
+    
+    font-family: 'Skranji', cursive;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: white;
+    
+    transition: color 1s ease;
+}
+
+.topBar__menu {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topBar__menuItem {
+    display: none; 
+    color: snow;
+    padding: 1.5vh 2vw;
+    text-decoration: none;
+    text-transform: uppercase; 
+    border-bottom: 1px solid hsla(39, 100%, 50%, 0);
+    transition: all 1s ease;
+}
+
+.topBar__menuItem:hover {
+    
+    border-bottom: 1px solid hsla(39, 100%, 50%, 1);
+    transition: all 0.5s ease;
+}
+
+.topBar__menuLauncher {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.topBar__menuClose {
+    display: none;
+    
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    
+    font-size: 2.5rem;
+    color: snow;
+    text-decoration: none;
+    line-height: 1;
+}
+
+
+/* mediaQueryd ülariba jaoks */
+
+@media screen and (min-width: 640px) {
+    .topBar {
+        justify-content: flex-end;
+    }
+    .topBar__menu {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .topBar__menuItem {
+        display: flex;   
+    }
+    .topBar__menuLauncher {
+        display: none;
+    }
+    .topBar__menuClose{
+        display: none;
+    }
+}
+
+
+
+/* menüü avatud */
+
+#showMenu:target.topBar {
+    height: 50vh;
+    transition: height 0.25s ease;
+}
+#showMenu:target .topBar__logo {
+    color: darkorange;
+}
+#showMenu:target .topBar__menuItem {
+    display: flex;
+}
+
+#showMenu:target .topBar__menuLauncher {
+    display: none;
+}
+#showMenu:target .topBar__menuClose {
+    display: block;
+}
+

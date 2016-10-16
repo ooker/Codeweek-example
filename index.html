@@ -9,12 +9,19 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <nav class="menu" id="showMenu">
-            <a class="menu-item" href="svg-img.html" target="_blank">SVG:IMG</a>
-            <a class="menu-item" href="svg-object.html" target="_blank">SVG:OBJECT</a>
-            <a class="menu-item menu-small" href="#showMenu">MENÜÜ</a>
-            <a class="menu-small__close" href="#_">&times;</a>
-        </nav>
+        <section class="topBar" id="showMenu">
+            <div class="topBar__logo">
+<!--                <img src="img/koll.svg">-->
+                CODEWEEK
+            </div>
+            <nav class="topBar__menu">
+                <a class="topBar__menuItem" href="svg-img.html" target="_blank">SVG:IMG</a>
+                <a class="topBar__menuItem" href="svg-object.html" target="_blank">SVG:OBJECT</a>
+                <a class="topBar__menuItem topBar__menuLauncher" href="#showMenu">MENÜÜ</a>
+                <a class="topBar__menuClose" href="#_">&times;</a>
+            </nav>
+        </section>
+        
         <header class="hero">
             <svg xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" viewBox="0 0 700 416"
                class="logo">

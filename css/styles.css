@@ -1,3 +1,4 @@
+@import url("/css/top-bar.css");
 @import url("/css/koll.css");
 
 html {
@@ -28,47 +29,7 @@ h2 {
     text-align: center;
 }
 
-.menu {
-    display: flex;
-    flex-wrap:nowrap;
-    position: fixed;
-    top:0; left:0;
-    background: hsl(240, 9%, 25%);
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-    z-index: 10;
-}
 
-.menu .menu-item {
-    display: none; 
-    color: snow;
-    padding: 1.5vh 2vw;
-    text-decoration: none;
-     text-transform: uppercase; 
-    border-bottom: 3px solid hsla(39, 100%, 50%, 0);
-    transition: all 1s ease;
-}
-
-.menu .menu-item:hover {
-    background: hsl(200, 59%, 40%);
-    border-bottom: 3px solid hsla(39, 100%, 50%, 1);
-    transition: all 0.5s ease;
-}
-
-.menu .menu-small {
-    display: block;
-    margin-left: auto;
-}
-
-.menu .menu-small__close {
-    display: none;
-    font-size: 2.5rem;
-    position: absolute;
-    top:1.5vh; right: 3vw;
-    color: snow;
-    text-decoration: none;
-    line-height: 1;
-}
 
 .hero {
     display: flex;
@@ -94,11 +55,12 @@ h2 {
 .hero .logo {
     max-height: 55vh;
     fill: #fff;
+    
     transition: fill 1s ease;
 }
 
 .hero .logo:hover {
-    fill: black;
+    fill: #bada55;
     transition: fill 1s ease;
 }
 
@@ -156,17 +118,6 @@ h2 {
     .hero-heading {
         font-size: 4.6rem;
     }
-    
-    .menu .menu-item {
-        display: block;   
-    }
-    
-    .menu .menu-small {
-        display: none;
-    }
-    .menu .menu-small__close{
-        display: none;
-    }
 }
 
 
@@ -181,21 +132,4 @@ figcaption {
 }
 
 
-#showMenu:target.menu {
-    flex-direction: column;
-    padding-bottom: 2vh;
-}
-#showMenu:target .menu-item {
-    display: block;
-    text-align: center;
-}
-#showMenu:target .menu-item:first-of-type {
-    margin-top: 3rem;
-}
 
-#showMenu:target .menu-small {
-    display: none;
-}
-#showMenu:target .menu-small__close {
-    display: block;
-}
