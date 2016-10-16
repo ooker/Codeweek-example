@@ -2,6 +2,14 @@
     fill: #c6d382;
 }
 
+.monster:active .monster__jaw {
+    animation: anim-monster-jaw 0.25s infinite alternate ;
+}
+
+.monster:active .monster__eye {
+    animation: anim-monster-eye 0.25s infinite alternate ;
+}
+
 .monster__eye {
     animation: anim-monster-eye 0.9s infinite alternate;
 }
