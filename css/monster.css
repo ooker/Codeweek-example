@@ -1,25 +1,25 @@
-.logo {
+.monster {
     fill: #c6d382;
 }
 
-.logo .silm {
-    animation: anim-silm 0.9s infinite alternate;
+.monster__eye {
+    animation: anim-monster-eye 0.9s infinite alternate;
 }
 
-.logo .silm--vasak {
+.monster__eye-left {
     transform-origin: 217px 148px;
 }
-.logo .silm--parem {
+.monster__eye-right {
     transform-origin: 489px 148px;
 }
 
-.logo .loug {
-    animation: anim-loug 0.9s infinite alternate ;
+.monster__jaw {
+    animation: anim-monster-jaw 0.9s infinite alternate ;
 }
 
 
-/* keyframes */
-@keyframes anim-silm{
+/* keyframes kolli animatsiooniks */
+@keyframes anim-monster-eye {
     0% {
         fill: rgba(255,0,0,1);
         transform: scale(0);
@@ -30,7 +30,7 @@
     }
 }
 
-@keyframes anim-loug{
+@keyframes anim-monster-jaw {
     0% {
         transform: translateY(10px);
     }

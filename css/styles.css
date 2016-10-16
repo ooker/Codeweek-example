@@ -1,5 +1,6 @@
 @import url("/css/top-bar.css");
-@import url("/css/koll.css");
+@import url("/css/monster.css");
+@import url("/css/hero.css");
 
 html {
   box-sizing: border-box;
@@ -20,109 +21,21 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Skranji', cursive;
-    color: #006064;
+/*    font-family: 'Skranji', cursive;*/
+    font-family: 'Days One', sans-serif;
+    color: #284d5a;
+    font-weight: 400;
 }
 
 h2 {
     font-size: 2.4rem;
-    text-align: center;
 }
-
-
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 100vh;
-    background-color: hsl(196, 63%, 38%);
-    background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(255,255,255,0.1) 15px, rgba(255,255,255,0.1) 30px);
-    animation: anim-hero--bg 15s infinite;
+h3 {
+    font-size: 2rem;
 }
-.hero-heading {
-    color: white;
-    font-size: 2.2rem;
-    margin: 0;
-    line-height: 1;
-    text-align: center;
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.7);
+h4 {
+    font-size: 1.5rem;
 }
-
-.hero .logo {
-    max-height: 55vh;
-    fill: #fff;
-    
-    transition: fill 1s ease;
-}
-
-.hero .logo:hover {
-    fill: #bada55;
-    transition: fill 1s ease;
-}
-
-
-.hero .logo .korvad {
-    display: none;
-}
-
-
-
-
-
-.content {
-    width: 90%;
-    max-width: 64rem;
-    
-}
-
-
-
-
-
-/* keyframes */
-
-
-@keyframes anim-hero--bg{
-    0% {
-        background-color: hsl(0, 63%, 38%);
-    }
-    25% {
-        background-color: hsl(90, 63%, 38%);
-    }
-    50% {
-        background-color: hsl(181, 63%, 38%);
-    }
-    75% {
-        background-color: hsl(270, 63%, 38%);
-    }
-    100% {
-        background-color: hsl(359, 63%, 38%);
-    }
-}
-
-
-
-
-
-
-/* media queries */
-@media screen and (min-width: 640px) {
-    .hero .logo .korvad {
-        display: block;
-    }
-    
-    .hero-heading {
-        font-size: 4.6rem;
-    }
-}
-
-
-
-
 
 figcaption {
     color: grey;
@@ -130,6 +43,30 @@ figcaption {
     font-style: italic;
     text-align: center;
 }
+
+
+
+
+.content {
+    width: 90%;
+    max-width: 64rem;   
+}
+
+.flexBoxes {
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.flexBoxes__box {
+    flex: 1 0 100%;
+}
+
+@media screen and (min-width: 860px) {
+    .flexBoxes__box {
+        flex: 1 0 50%;
+    }
+}
+
 
 
 
