@@ -63,10 +63,12 @@
             <hr>
             <p>
                 SVG faili saab HTML-i sisestada ka <b>object</b> elemendina. Kood on pisut erinev: <code>&lt;object type="image/svg+xml" data="faili/asukoht/failinimi.svg" &gt;&lt;/object&gt;</code><br>
-                Plussiks on see, et object'i puhul on võimalik Javascripti või CSS-i abil svg-d manipuleerida. Javascriptist pikemalt siin ei räägi, sest see pole hetkel meie teema, aga <b>CSS-i puhul peaks SVG faili alguses olema järgmine märgend</b>: <code>&lt;?xml-stylesheet type="text/css" href="../css/monster.css" ?&gt;</code> See pöördub välise CSS faili poole, laeb need sisse ja teeb SVG-le seal määratud stiilid arusaadavaks. Allpool on näha, et siin on kollide värv ja animatsioonid sellised nagu "monster.css" failis määratud, ehkki SVG fail ise, mis HTML-i laetakse, on täpselt sama kui sama faili IMG-na lehele sisestamise puhul (kus animatsioone polnud ja koll ise oli lihtsalt must). <a href="svg-img.html">Ei mäleta? Vaata järgi!</a>
+                Plussiks on see, et object'i puhul on võimalik Javascripti või CSS-i abil svg-d manipuleerida. Javascriptist pikemalt siin ei räägi, sest see pole hetkel meie teema, aga <b>CSS-i puhul peaks SVG faili alguses olema järgmine märgend</b>: 
+                <code>&lt;?xml-stylesheet type="text/css" href="faili/asukoht/faililinimi.css" ?&gt;</code> 
+                See pöördub välise CSS faili poole, laeb need sisse ja teeb SVG-le seal määratud stiilid arusaadavaks. Allpool on näha, et siin on kollide värv ja animatsioonid sellised nagu "monster.css" failis määratud, ehkki SVG fail ise, mis HTML-i laetakse, on täpselt sama kui sama faili IMG-na lehele sisestamise puhul (kus animatsioone polnud ja koll ise oli lihtsalt must). 
                 
             </p>
-            <p><code class="alert">Ei tööta Internet Exploreriga. Aga IE ei koti ka. Kaua võib.</code></p>
+            <p><code class="alert">Ei tööta Internet Exploreriga. Ei ole üllatus ka.</code></p>
             <hr>
         </div>
         
