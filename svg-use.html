@@ -4,30 +4,51 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Codeweek: svg use</title>
         <style>
+            body {
+                display: flex;
+                flex-direction:column;
+                align-items: center;
+            }
             .svg-container {
                 display: flex;
                 justify-content: space-around;
-                align-items: center;
-                height: 80vh;
+                align-items: space-around;
+                width: 80vw;
+                height: 70vh;
+                overflow: hidden;
             }
             .svg-medium {
-                width:40vw;   
+                width:40vw;
             }
             .svg-small {
-                width:20vw;   
+                width:20vw;
             }
             .svg-tiny {
-                width:5vw;   
+                width:5vw;
             }
             
             use {
                 width:100%; height:auto;
             }
             
+            @keyframes rotate-me {
+                0% {
+                    transform:rotate(-180deg);
+                }
+                100{
+                    transform:rotate(180deg);
+                }
+            }
         </style>
     <body>
+        
+        
         <svg style="display:none;">
-            
+            <!-- 
+                see on inline svg ehk kood on otse html failis 
+                Pane tähele, et svg style ütleb display:none, ehk siin me tegelikult seda faili ennast ei näita
+                See osa koodist on lihtsalt svg sümbolite defineerimiseks
+            -->
             <defs>
                 <symbol id="pall">
                     <circle r="50" cx="50" cy="50"></circle>
@@ -40,30 +61,53 @@
                 </symbol> 
             </defs>
             
-            <!--<use xlink:href="#kolmnurk" style="fill:green; transform:translate(-20px,40px) rotate(-20deg); opacity:0.4"></use>
-            <use xlink:href="#pall" style="fill:red; transform:scale(0.5); opacity:0.4"></use>
-            <use xlink:href="#pall" style="fill:yellow; transform:translate(30px,40px) scale(0.4); opacity:0.4"></use>-->
-           
+            <!-- 
+                <use> abil saab sümboleid tegelikult kasutada ka svg sees nagu näha siin all
+                aga praegu kommenteerime selle välja 
+            -->
+            <!--
+                <use xlink:href="#kolmnurk" style="fill:green; transform:translate(-20px,40px) rotate(-20deg); opacity:0.4"></use>
+                <use xlink:href="#pall" style="fill:red; transform:scale(0.5); opacity:0.4"></use>
+                <use xlink:href="#pall" style="fill:yellow; transform:translate(30px,40px) scale(0.4); opacity:0.4"></use>
+            -->
         </svg>
             
-
         <h1>SVG &lt;symbol&gt; ja &lt;use&gt;</h1>
+        <h3>1. Kasutame inline svg-s defineeritud sümboleid (tseki koodi)</h3>
         <div class="svg-container">
-            <svg class="svg-medium" viewBox="0 0 100 100">
-                <use xlink:href="#kolmnurk" style="fill:purple;"></use>
+            
+            <!-- 
+                siin on kasutatud svg > use xlink:href meetodit
+                mille abil me näitame lehe ülaosas defineeritud svg sümboleid nende #id kaudu
+                Ja saame neid siin eraldi css-iga vajadusel stiliserida
+             -->
+            
+            <svg class="svg-small" viewBox="0 0 100 100" style="fill:green; opacity:0.5;">
+                <use xlink:href="#kolmnurk"></use>
             </svg>
-            <svg class="svg-small" viewBox="0 0 100 100">
-                <use xlink:href="#kast" style="fill:blue;"></use>
+            <svg class="svg-small" viewBox="0 0 100 100" >
+                <use xlink:href="#pall"></use>
             </svg>
-            <svg class="svg-tiny" viewBox="0 0 100 100">
-                <use xlink:href="#pall" style="fill:green;"></use>
+            <svg class="svg-small" viewBox="0 0 100 100" style="fill:yellow; opacity:0.7; animation: rotate-me 3s infinite linear;">
+                <use xlink:href="#kast"></use>
             </svg> 
+           
         </div>
         
+        <h3>2. Kasutame välises svg failis defineeritud sümbolit</h3>
+          
         <svg viewBox="0 0 700 416">
+            <!--
+                Tegelikult saame me kuvada samamoodi mitte ainult siin lehel defineeritud 
+                inline svg sümboleid nagu me tegime ülalpool,
+                vaid ka välistes svg failides leiduvaid sümboleid
+                Pane tähele siin all olevat xlink:href atribuuti, kus me kõigepealt
+                kirjutame raja failini (img/koll-symbol.svg) ja 
+                kohe selle järgi seal failis leiduva sümboli id (#koll)
+                NB: see meetod ei tööta kahjuks InternetExploreriga, Microsoft Edge OK
+            -->
             <use xlink:href="img/koll-symbol.svg#koll" style="fill:#bada55;"></use>
         </svg>
-        
         
     </body>
 </html>
