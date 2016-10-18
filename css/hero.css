@@ -36,9 +36,11 @@
 
 
 .hero .monster {
+    width: 100%;
     max-height: 55vh;
     fill: #fff;
     transition: fill 1s ease;
+    
 }
 
 .hero .monster:hover {

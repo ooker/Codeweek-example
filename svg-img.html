@@ -1,31 +1,88 @@
 <!doctype html>
 <html>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Codeweek: svg img</title>
         <style>
+                
+            /* sellel lehel on võimalikult vähe stiile, et oleks lihtne ja vähem eksitavat mudru */
+
             .svg-container {
                 display: flex;
                 justify-content: space-around;
-                height: 80vh;
+                align-items: center;
+                padding: 8vh 2vw;
+            }
+            .text-container {
+                width: 95%;
+                max-width:900px;
+                margin:0 auto;
             }
             .svg-medium {
-                width:40vw;   
+                flex: 0 0 40%;
+                max-width: 40%;
             }
             .svg-small {
-                width:20vw;   
+                flex: 0 0 20%;
+                max-width: 20%;
             }
             .svg-tiny {
-                width:5vw;   
+                flex: 0 0 5%;
+                max-width: 5%;
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+            code {
+                display: inline-block;
+                margin: 5px 0;
+                padding: 5px 8px;
+                background: #ddd;
+
+                border-radius: 6px;
+
+            }
+
+            code.alert {
+                background-color: darksalmon;
             }
         </style>
+    </head>
     <body>
-        <h1>SVG kui &lt;img&gt; element</h1>
+        
+        
+        <div class="text-container">
+              <h1>SVG kui &lt;img&gt; element</h1>
+               <hr>
+                <p>Lisame svg faili HTML lehele nagu iga teisegi pildi:
+                    <code>&lt;img src="faili/asukoht/failinimi.svg" alt="Abistav tekst"&gt;</code>
+                    <br>
+                    See on kõige lihtsam (või tuntum) meetod. Töötab hästi lihtsamate laheduste puhul, aga sel meetodil sisestatud svg faili ei saa CSS-i või Javascripti abil muuta ega animeerida - CSS-i puhul välja arvatud ühel juhul (vaata keskmist kolli) - kui stiilid on kirjutatud otse SVG sisse. (<b>Seega keskmise kolli puhul on siin kasutatud teistest erinevat svg faili - vaata koodi</b>) <code class="alert">NB! See viimane meetod ei tööta kõigi brauseritega ühtemoodi</code>
+                </p>
+            <hr>
+        </div>           
         <div class="svg-container">
-            <img class="svg-medium" src="img/koll.svg">
-            <img class="svg-small" src="img/koll.svg">
-            <img class="svg-tiny" src="img/koll.svg">
+            <div class="svg-medium">
+                <img src="img/koll.svg" alt="Koll">
+            </div>
+            <div class="svg-small">
+                <img src="img/koll-stiilidega.svg" alt="Pisem koll">
+            </div>
+            <div class="svg-tiny">
+                <img src="img/koll.svg" alt="Päris pisike koll">
+            </div>
         </div>
-        <img src="img/koll.svg">
+        
+          <div class="text-container">
+              <hr>
+              <p>
+                See suurem jurakas siin all on sisestatud täpselt samamoodi tavalise img elemendina, aga siin me laseme tal võtta nii palju ruumi kui võimalik, et demonstreerida svg head skaleeruvust - ükskõik kui suurelt me teda näitame, on svg puhul kujutis alati selge.
+              </p> 
+            <hr>
+        </div> 
+        
+        <img src="img/koll.svg" alt="Assa raks, ma olen suur vägev koll!">
     </body>
 </html>

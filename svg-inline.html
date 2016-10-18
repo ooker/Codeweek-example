@@ -1,31 +1,81 @@
 <!doctype html>
 <html>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Codeweek: svg inline</title>
         <style>
+            /* sellel lehel on võimalikult vähe stiile, et oleks lihtne ja vähem eksitavat mudru */
+
             .svg-container {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-                height: 80vh;
+                padding: 8vh 2vw;
+            }
+            .text-container {
+                width: 95%;
+                max-width:900px;
+                margin:0 auto;
             }
             .svg-medium {
-                width:40vw;   
+                flex: 0 0 40%;
+                max-width: 40%;
             }
             .svg-small {
-                width:20vw;   
+                flex: 0 0 20%;
+                max-width: 20%;
             }
             .svg-tiny {
-                width:5vw;   
+                flex: 0 0 5%;
+                max-width: 5%;
+            }
+            img {
+                display: block;
+                width: 100%;
+            }
+            use {
+                display: block;
+                width: 100%;
+            }
+            code {
+                display: inline-block;
+                margin: 5px 0;
+                padding: 5px 8px;
+                background: #ddd;
+
+                border-radius: 6px;
+
+            }
+
+            code.alert {
+                background-color: darksalmon;
             }
         </style>
+    </head>
     <body>
-        <h1>Inline-SVG ehk &lt;svg&gt;</h1>
+        
+        <div class="text-container">
+            <h1>Inline-SVG ehk &lt;svg&gt; kood otse HTML-is</h1>
+            <hr>
+            <p>
+                SVG kood on võimalik kopida ka otse HTML-i SVG tag'ina: 
+                <br>
+                <code>&lt;svg viewBox="0 0 700 416"&gt;
+                <br>
+                &lt;path class="mingiklass" d="M670.63 151.38v...<br>
+                <i>...siin on kõik svg sees määratud elemendid...</i><br>
+                &lt;/svg&gt;</code>
+                <br>
+                <b>Plussiks</b> on see, et SVG on sel moel otseselt osa dokumendist või täpsemalt öeldes DOM-ist (<a href="https://css-tricks.com/dom/" target="_blank">Mis on DOM?</a>) ja nii on talle nii CSS-i kui Javascriptiga võimalikult lihtne ligi pääseda kui me soovime sellega mingeid vigureid teha.<br>
+                <b>Miinuseks</b> see, et kui tahame sama SVG-d <b>mitu korda</b> oma lehel näidata, peab selle kopima iga kord uuesti HTML-i ja mingi hetk muutub see mõttetuks (eriti keerulisemate svg-piltide puhul või kui me tahame väga mitmeid kordi seda sama SVG-d näidata). 
+            </p>
+            <hr>
+        </div>
+        
         <div class="svg-container">
             
-            <svg xmlns="http://www.w3.org/2000/svg" style="isolation:isolate;" viewBox="0 0 700 416"
-               class="monster svg-medium">
+            <svg viewBox="0 0 700 416" class="monster svg-medium">
                 
                 <path class="monster__ears" d="M670.63 151.38v-14.13H659.7V121.1h-19.85V109H618v111h21.85v-13.45h19.86V190.4h10.93v-16.15H690v-22.87h-19.37zM26.37 177.62v14.13H37.3v16.14h19.85V220H79V109H57.15v13.45H37.3v16.15H26.36v16.15H7v22.87h19.37z"/>
                 
@@ -39,8 +89,8 @@
             
             <div class="svg-medium">
                 <h2>UUPS!</h2>
-                <p>Kopida on jama - pole mõtet kogu svg koodi korduvalt html-i toppida</p>
-                <h3>:(</h3>
+                <code class="alert">Sama SVG-d niimoodi mitu korda näidata on jama - pole mõtet sama svg-koodi korduvalt html-i toppida - eriti keerulisemate svg-de puhul</code>
+                <p>Aga siin tuleb meile (lihtsamatel juhtudel) appi SVG sümbolite kasutamine läbi <a href="svg-use.html" target="_blank"> &lt;use&gt; elemendi</a></p>
             </div>
             
         </div>

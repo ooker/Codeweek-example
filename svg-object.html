@@ -1,26 +1,70 @@
 <!doctype html>
 <html>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Codeweek: svg object</title>
         <style>
+            /* sellel lehel on võimalikult vähe stiile, et oleks lihtne ja vähem eksitavat mudru */
+                
             .svg-container {
                 display: flex;
                 justify-content: space-around;
-                height: 80vh;
+                align-items: center;
+                padding: 8vh 2vw;
+            }
+            .text-container {
+                width: 95%;
+                max-width:900px;
+                margin:0 auto;
             }
             .svg-medium {
-                width:40vw;   
+                flex: 0 1 40%;
+                max-width: 40%;
             }
             .svg-small {
-                width:20vw;   
+                flex: 0 1 20%;
+                max-width: 20%;
             }
             .svg-tiny {
-                width:5vw;   
+                flex: 0 1 5%;
+                max-width: 5%;
             }
+            img, object {
+                display: block;
+                width: 100%;
+            }
+            
+            code {
+                display: inline-block;
+                margin: 5px 0;
+                padding: 5px 8px;
+                background: #ddd;
+                    
+                border-radius: 6px;
+                    
+            }
+                
+            code.alert {
+                background-color: darksalmon;
+            }
+                
         </style>
+    </head>
     <body>
-        <h1>SVG kui &lt;object&gt; element</h1>
+        
+        <div class="text-container">
+            <h1>SVG kui &lt;object&gt; element</h1>
+            <hr>
+            <p>
+                SVG faili saab HTML-i sisestada ka <b>object</b> elemendina. Kood on pisut erinev: <code>&lt;object type="image/svg+xml" data="faili/asukoht/failinimi.svg" &gt;&lt;/object&gt;</code><br>
+                Plussiks on see, et object'i puhul on võimalik Javascripti või CSS-i abil svg-d manipuleerida. Javascriptist pikemalt siin ei räägi, sest see pole hetkel meie teema, aga <b>CSS-i puhul peaks SVG faili alguses olema järgmine märgend</b>: <code>&lt;?xml-stylesheet type="text/css" href="../css/monster.css" ?&gt;</code> See pöördub välise CSS faili poole, laeb need sisse ja teeb SVG-le seal määratud stiilid arusaadavaks. Allpool on näha, et siin on kollide värv ja animatsioonid sellised nagu "monster.css" failis määratud, ehkki SVG fail ise, mis HTML-i laetakse, on täpselt sama kui sama faili IMG-na lehele sisestamise puhul (kus animatsioone polnud ja koll ise oli lihtsalt must). <a href="svg-img.html">Ei mäleta? Vaata järgi!</a>
+                
+            </p>
+            <p><code class="alert">Ei tööta Internet Exploreriga. Aga IE ei koti ka. Kaua võib.</code></p>
+            <hr>
+        </div>
+        
         <div class="svg-container">
             <object type="image/svg+xml" data="img/koll.svg" class="svg-medium"></object>
             <object type="image/svg+xml" data="img/koll.svg" class="svg-small"></object>

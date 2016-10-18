@@ -1,36 +1,53 @@
 <!doctype html>
 <html>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Codeweek: svg use</title>
         <style>
-            body {
-                display: flex;
-                flex-direction:column;
-                align-items: center;
-            }
+            /* sellel lehel on võimalikult vähe stiile, et oleks lihtne ja vähem eksitavat mudru */
+            
             .svg-container {
                 display: flex;
                 justify-content: space-around;
-                align-items: space-around;
-                width: 80vw;
-                height: 70vh;
-                overflow: hidden;
+                align-items: center;
+                padding: 8vh 2vw;
+            }
+            .text-container {
+                width: 95%;
+                max-width:900px;
+                margin:0 auto;
             }
             .svg-medium {
-                width:40vw;
+                flex: 0 0 40%;
+                max-width: 40%;
             }
             .svg-small {
-                width:20vw;
+                flex: 0 0 20%;
+                max-width: 20%;
             }
             .svg-tiny {
-                width:5vw;
+                flex: 0 0 5%;
+                max-width: 5%;
             }
-            
-            use {
-                width:100%; height:auto;
+            img {
+                display: block;
+                width: 100%;
             }
-            
+            code {
+                display: inline-block;
+                margin: 5px 0;
+                padding: 5px 8px;
+                background: #ddd;
+
+                border-radius: 6px;
+
+            }
+
+            code.alert {
+                background-color: darksalmon;
+            }
+
             @keyframes rotate-me {
                 0% {
                     transform:rotate(-180deg);
@@ -40,6 +57,7 @@
                 }
             }
         </style>
+    </head>
     <body>
         
         
@@ -72,8 +90,26 @@
             -->
         </svg>
             
-        <h1>SVG &lt;symbol&gt; ja &lt;use&gt;</h1>
-        <h3>1. Kasutame inline svg-s defineeritud sümboleid (tseki koodi)</h3>
+        <div class="text-container">
+            <h1>SVG &lt;symbol&gt; ja &lt;use&gt;</h1>
+            <h2>Meetod 1: <small>kasutame <span style="color:red;">inline-svg sees</span> defineeritud "sümboleid"</small></h2>
+            <hr>
+            <p>Selle lehe HTML-koodi alguses on inline-svg, kus on kujutatud kolm lihtsat elementi: ring, kolmnurk ja ruut. (Lihtsad on elemendid siin näite mõttes, tegelikult võime me seal kujutada mida iganes) Meeldetuletuseks: Inline-svg on siis selline svg kood, mis on otse HTML-i sisse kirjutatud. <b>Aga pane tähele, et siin, on svg-kood pisut erinev varasematest näidetest:</b> <b>svg objektid (kujundid) on &lt;symbol&gt; elementide sees, mis omakorda on &lt;defs&gt; elemendi sees</b>. Sümbolitele <b>peab olema määratud ID</b> - läbi selle saame neid hiljem "välja kutsuda" (tseki koodi)<br>
+            Koodi vaadates näed, et selle svg elemendi style ütleb svg-le <b>display:none</b>, ehk tegelikult me seda svg-d ennast lehel üldse ei näitagi - kood on seal lihtsalt svg sümbolite defineerimiseks.</p>
+            
+            <p>
+               Nüüd seal kohas, kus tahame oma lehel mõnd SVG-s olevat sümbolit kasuda, <b>loome uue &lt;svg&gt; elemendi</b> ja selle sees kasutame <b>&lt;use&gt; elementi</b> koos spetsiaalse <b>xlink:href atribuudiga</b>, mille väärtuseks on <b>eespool koodis oleva peidetud svg mõne sümboli ID</b> (näiteks #kolmnurk). <code class="alert">Lihtne ju! :)</code>
+               <br>
+                <code>
+                    &lt;svg viewBox="0 0 100 100" &gt;<br>
+                    &lt;use xlink:href="#SYMBOLI_ID"&gt;&lt;/use&gt;<br>
+                    &lt;/svg&gt;
+                </code>
+                <br>
+                Neid uusi svg+use elemente saame me eraldi stiliseerida ja animeerida nagu siin allpool näha. 
+            </p>
+            <hr>
+        </div>
         <div class="svg-container">
             
             <!-- 
@@ -93,10 +129,27 @@
             </svg> 
            
         </div>
+        <div class="text-container">
+            <hr>
+                <h2>Meetod 2: <small>kasutame <span style="color:red;">välises svg failis</span> defineeritud sümbolit</small> </h2>
+                <p>Just nii. Alati ei pea sümboleid sisaldavat svg-koodi lehele sisestama. Uuemad brauserid lubavad meil eelpool kirjeldatud &lt;use&gt; elementi ja svg sümbolit kasutada ka väljaspool seda html-lehte olevast svg failist.
+                
+            </p>
+            <p>
+                Kõik muu on sama, aga sel juhul tuleb &lt;use&gt; elemendi xlink:href atribuudile anda <b>esmalt rada .svg failini</b> (meie näites "img/koll-symbol.svg") ja <b>kohe seejärel selles failis leiduva sümboli id</b> ("#koll")
+            </p>
+            <code>
+                &lt;svg viewBox="0 0 100 100" &gt;<br>
+                &lt;use xlink:href="img/mingifail.svg#SYMBOLI_ID"&gt;&lt;/use&gt;<br>
+                &lt;/svg&gt;
+            </code>
+            <p>See alumine koll on just sellise meetodiga siia alla kuvatud koll-symbol.svg failist.</p>
+            <p><code class="alert">NB! Seesinane kaunis meetod ei tööta näiteks Internet Exploreritega. Microsoft Edges juba toimib.</code></p>
+            <p><code class="alert">Siin saame me CSS-i abil muuta svg-d tervikuna (kursoriga peale liikudes muutub kolli värv), aga me ei pääse siin eraldi animeerima näiteks silma või lõuga. Või noh, saab, aga siis peaks taas appi võtma javascripti. Aga see on pigem juba järgmise korra teema.</code></p>
+            <hr>
+        </div>
         
-        <h3>2. Kasutame välises svg failis defineeritud sümbolit</h3>
-          
-        <svg viewBox="0 0 700 416">
+        <svg viewBox="0 0 700 416" class="external-file-monster">
             <!--
                 Tegelikult saame me kuvada samamoodi mitte ainult siin lehel defineeritud 
                 inline svg sümboleid nagu me tegime ülalpool,
@@ -106,8 +159,20 @@
                 kohe selle järgi seal failis leiduva sümboli id (#koll)
                 NB: see meetod ei tööta kahjuks InternetExploreriga, Microsoft Edge OK
             -->
-            <use xlink:href="img/koll-symbol.svg#koll" style="fill:#bada55;"></use>
+            <use xlink:href="img/koll-symbol.svg#koll"></use>
         </svg>
+        
+        
+        <style>
+            .external-file-monster {
+                transition: fill 1s ease;
+            }
+            .external-file-monster:hover {
+                fill:#bada55;
+            }
+            
+            
+        </style>
         
     </body>
 </html>
